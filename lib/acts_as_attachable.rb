@@ -15,3 +15,11 @@ Dir["#{this}/../app/views/*"].each { |c| require c if File.extname(c) == ".erb" 
 class AttachableException < Exception; end
 
 ActiveRecord::Base.send(:include, ActsAsAttachable) if defined?(ActiveRecord)
+
+class << ActionController::Routing::Routes;self;end.class_eval do
+  define_method :clear!, lambda {}
+end
+
+ActionController::Routing::Routes.draw do |map|
+  map.resources :attachable_assets
+end

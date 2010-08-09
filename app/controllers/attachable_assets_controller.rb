@@ -1,5 +1,4 @@
 class AttachableAssetsController < ApplicationController
-  before_filter :ensure_required_params_present, :only => [ :index ]
 
   def index
     @attachable_assets = AttachableAsset.find(:all, 
