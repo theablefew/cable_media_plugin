@@ -1,11 +1,7 @@
 class AttachableAssetsController < ApplicationController
 
   def index
-    @attachable_assets = AttachableAsset.find(:all, 
-      :conditions => {
-        :attachable_type => params[:attachable_type],
-        :attachable_id => params[:attachable_id],
-    })
+    @attachable_assets = AttachableAsset.find(:all)
 
     respond_to do |format|
       format.html
